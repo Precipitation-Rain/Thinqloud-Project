@@ -1,0 +1,9 @@
+{
+  "name": "charity-donation-platform",
+  "version": "1.0.0",
+  "description": "Full-Stack Charity & Donation Management Platform",
+  "scripts": {
+    "backend": "cd backend && node server.js",
+    "frontend": "cd frontend && npm run dev"
+  }
+}

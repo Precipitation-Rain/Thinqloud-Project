@@ -1,0 +1,107 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background-color: #fcfdfd;
+    color: #0f172a;
+  }
+
+  code, pre, .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+/* Clean Custom Utilities */
+.clean-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.04), 0 1px 2px -1px rgba(0, 0, 0, 0.02);
+}
+
+.clean-card-hover {
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.clean-card-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.06), 0 8px 10px -6px rgba(0, 0, 0, 0.03);
+  border-color: #cbd5e1;
+}
+
+/* Pristine Print Stylesheet for Tax Receipts & Invoices */
+@media print {
+  /* Reset Page & Backgrounds */
+  @page {
+    margin: 1cm;
+    size: auto;
+  }
+
+  html, body {
+    background: #ffffff !important;
+    color: #000000 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+    height: auto !important;
+  }
+
+  /* Hide everything outside of the receipt modal */
+  header, footer, nav, main, .no-print {
+    display: none !important;
+  }
+
+  /* Remove modal backdrop, dark overlays, and fixed positioning */
+  .fixed {
+    position: static !important;
+    inset: auto !important;
+    background: transparent !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    overflow: visible !important;
+    box-shadow: none !important;
+  }
+
+  .shadow-xl, .shadow-2xl, .shadow-md, .shadow-xs {
+    box-shadow: none !important;
+  }
+
+  .rounded-2xl, .rounded-3xl {
+    border-radius: 0 !important;
+  }
+
+  /* Style the Receipt Container for high-contrast crisp print */
+  #printable-receipt {
+    display: block !important;
+    position: relative !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 auto !important;
+    padding: 20px !important;
+    background: #ffffff !important;
+    color: #000000 !important;
+    border: 1px solid #94a3b8 !important;
+    page-break-inside: avoid;
+  }
+
+  #printable-receipt * {
+    color: #000000 !important;
+    text-shadow: none !important;
+  }
+
+  #printable-receipt .bg-slate-50, 
+  #printable-receipt .bg-emerald-50, 
+  #printable-receipt .bg-slate-100 {
+    background-color: #f1f5f9 !important;
+    border-color: #cbd5e1 !important;
+  }
+
+  #printable-receipt .text-emerald-700,
+  #printable-receipt .text-emerald-800,
+  #printable-receipt .text-emerald-900 {
+    color: #047857 !important;
+  }
+
+  #printable-receipt .border-slate-200 {
+    border-color: #cbd5e1 !important;
+  }
+}
